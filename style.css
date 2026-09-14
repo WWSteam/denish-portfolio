@@ -295,6 +295,17 @@ body::after{
 
     transition:border-color .25s ease, background .25s ease;
 }
+.socials a {
+    text-decoration: none;
+    color: #ffffff;
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.socials a:hover {
+    color: #38bdf8;
+    transform: scale(1.25);
+}
 /* Hero */
 
 .hero{
@@ -428,7 +439,14 @@ body::after{
     line-height:1.7;
     font-size:16px;
 }
-
+.section-subtitle {
+    text-align: center;
+    max-width: 650px;
+    margin: -10px auto 40px;
+    color: #94a3b8;
+    font-size: 16px;
+    line-height: 1.6;
+}
 
 
 /* Sections */
