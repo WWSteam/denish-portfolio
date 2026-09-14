@@ -380,14 +380,14 @@ body::after{
     margin-right:15px;
 }
 .socials a {
-    text-decoration: none;
-    color: #ffffff;
+    text-decoration: none !important;
+    color: #ffffff !important;
     display: inline-block;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .socials a:hover {
-    color: #38bdf8;
+    color: #38bdf8 !important;
     transform: scale(1.25);
 }
 
@@ -1104,14 +1104,15 @@ footer{
         margin-bottom:30px;
     }
     .section-subtitle {
-    text-align: center;
+    display: block;
+    width: 100%;
     max-width: 650px;
-    margin: -10px auto 40px;
+    margin: 0 auto 40px auto;
+    text-align: center !important;
     color: #94a3b8;
     font-size: 16px;
     line-height: 1.6;
     }
-
     /* Hero */
     .hero{
         min-height:auto;
