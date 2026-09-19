@@ -13,6 +13,83 @@ html{
     transform:translateY(60px);
     transition:all 0.8s ease;
 }
+/* =========================================
+   CUSTOM GLOWING MOUSE CURSOR
+========================================= */
+
+@media (pointer: fine) {
+    html,
+    body,
+    body * {
+        cursor: none !important;
+    }
+}
+
+.cursor-dot {
+    width: 7px;
+    height: 7px;
+    background: #ffffff;
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    box-shadow:
+        0 0 8px #00d9ff,
+        0 0 18px #7c3aed;
+}
+
+.cursor-outline {
+    width: 38px;
+    height: 38px;
+    border: 2px solid rgba(0, 217, 255, 0.75);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99998;
+    transform: translate(-50%, -50%);
+    transition:
+        width 0.25s ease,
+        height 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+    box-shadow:
+        0 0 12px rgba(0, 217, 255, 0.35),
+        inset 0 0 10px rgba(124, 58, 237, 0.15);
+}
+
+/* Hover effect */
+.cursor-outline.cursor-hover {
+    width: 52px;
+    height: 52px;
+    border-color: #a855f7;
+    background: rgba(124, 58, 237, 0.08);
+    box-shadow:
+        0 0 20px rgba(168, 85, 247, 0.45),
+        inset 0 0 15px rgba(0, 217, 255, 0.15);
+}
+
+/* Click animation */
+.cursor-outline.cursor-click {
+    width: 22px;
+    height: 22px;
+    border-color: #00d9ff;
+    background: rgba(0, 217, 255, 0.15);
+}
+
+
+/* Don't show custom cursor on touch devices */
+@media (pointer: coarse) {
+    .cursor-dot,
+    .cursor-outline {
+        display: none;
+    }
+}
 
 .reveal.active{
     opacity:1;

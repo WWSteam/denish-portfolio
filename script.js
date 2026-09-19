@@ -430,3 +430,69 @@ if (contactForm) {
     
 
 }
+/* =========================================
+   CUSTOM MOUSE CURSOR
+========================================= */
+
+const cursorDot = document.querySelector(".cursor-dot");
+const cursorOutline = document.querySelector(".cursor-outline");
+
+if (cursorDot && cursorOutline && window.matchMedia("(pointer: fine)").matches) {
+
+    let mouseX = 0;
+    let mouseY = 0;
+
+    let outlineX = 0;
+    let outlineY = 0;
+
+    document.addEventListener("mousemove", (e) => {
+
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        // Small dot follows immediately
+        cursorDot.style.left = `${mouseX}px`;
+        cursorDot.style.top = `${mouseY}px`;
+    });
+
+    // Smooth movement for outer ring
+    function animateCursor() {
+
+        outlineX += (mouseX - outlineX) * 0.30;
+        outlineY += (mouseY - outlineY) * 0.30;
+
+        cursorOutline.style.left = `${outlineX}px`;
+        cursorOutline.style.top = `${outlineY}px`;
+
+        requestAnimationFrame(animateCursor);
+    }
+
+    animateCursor();
+
+
+    // Elements that should make the cursor grow
+    const hoverElements = document.querySelectorAll(
+        "a, button, .project-card, input, textarea, .skill-card, .social-link"
+    );
+
+    hoverElements.forEach((element) => {
+
+        element.addEventListener("mouseenter", () => {
+            cursorOutline.classList.add("cursor-hover");
+        });
+
+        element.addEventListener("mouseleave", () => {
+            cursorOutline.classList.remove("cursor-hover");
+        });
+    });
+
+
+    // Click effect
+    document.addEventListener("mousedown", () => {
+        cursorOutline.classList.add("cursor-click");
+    });
+
+    document.addEventListener("mouseup", () => {
+        cursorOutline.classList.remove("cursor-click");
+    });
+}
