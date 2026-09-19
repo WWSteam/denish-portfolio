@@ -1010,7 +1010,81 @@ footer{
     }
 }
 
+/* ================================
+   PROJECTS - 3 CARDS PER ROW
+================================ */
 
+.projects-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-auto-flow: row !important;
+    gap: 30px !important;
+    width: 100%;
+}
+
+/* Every project card stays inside its grid column */
+.projects-grid .project-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+}
+
+/* Desktop: exactly 3 + 3 */
+.projects-grid .project-card:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.projects-grid .project-card:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.projects-grid .project-card:nth-child(3) {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.projects-grid .project-card:nth-child(4) {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.projects-grid .project-card:nth-child(5) {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.projects-grid .project-card:nth-child(6) {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+
+/* Tablet */
+@media (max-width: 900px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .projects-grid .project-card:nth-child(n) {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .projects-grid .project-card:nth-child(n) {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
 /* ==========================
    PROFESSIONAL MOTION CONTROL
    Keeps the interface polished without excessive effects.
