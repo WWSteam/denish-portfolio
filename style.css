@@ -13,6 +13,7 @@ html{
     transform:translateY(60px);
     transition:all 0.8s ease;
 }
+
 /* =========================================
    CUSTOM GLOWING MOUSE CURSOR
 ========================================= */
@@ -1136,7 +1137,98 @@ footer{
     grid-column: 3;
     grid-row: 2;
 }
+/* =========================
+   BACK TO TOP BUTTON
+========================= */
 
+#backToTop {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: white;
+
+    font-size: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+
+    transition: all 0.3s ease;
+
+    z-index: 99999;
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#backToTop:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+}
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Different animation */
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
 
 /* Tablet */
 @media (max-width: 900px) {
